@@ -1,6 +1,5 @@
 
 
-
 Horizonal Timing
 
 Horizonal Dots         640     640     640
@@ -54,34 +53,5 @@ RAM Contents
 
 0000,0010 0000,0000 = 0x0100 -> Contains the
 0000,0010 0000,1111 = 0x010F -> palette
-
-
-
-
-var hsi :int = 0;     <- Horizontal start index
-var hinc:Number = 0;  <- Amount to increment 'hsi' each frame
-var hind:int = 0;
-
-var vsi :int = 0;
-var vind:int = 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
