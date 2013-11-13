@@ -1,0 +1,87 @@
+
+
+
+Horizonal Timing
+
+Horizonal Dots         640     640     640
+Vertical Scan Lines    350     400     480
+Horiz. Sync Polarity   POS     NEG     NEG
+A (us)                 31.77   31.77   31.77     Scanline time
+B (us)                 3.77    3.77    3.77      Sync pulse lenght 	( 75.4 clocks) ~  75
+C (us)                 1.89    1.89    1.89      Back porch         ( 37.8 clocks) ~  38
+D (us)                 25.17   25.17   25.17     Active video time  (503.4 clocks) ~ 503
+E (us)                 0.94    0.94    0.94      Front porch        ( 18.8 clocks) ~  18
+
+         ______________________          ________
+________|        VIDEO         |________| VIDEO (next line)
+    |-C-|----------D-----------|-E-|
+__   ______________________________   ___________
+  |_|                              |_|
+  |B|
+  |---------------A----------------|
+
+
+Vertical Timing
+
+Horizonal Dots         640     640     640
+Vertical Scan Lines    350     400     480
+Vert. Sync Polarity    NEG     POS     NEG
+Vertical Frequency     70Hz    70Hz    60Hz
+O (ms)                 14.27   14.27   16.68     Total frame time
+P (ms)                 0.06    0.06    0.06      Sync length        (  2 lines)
+Q (ms)                 1.88    1.08    1.02      Back porch         ( 32 lines)
+R (ms)                 11.13   12.72   15.25     Active video time  (480 lines)
+S (ms)                 1.2     0.41    0.35      Front porch        ( 11 lines)
+
+[  1,480] = Active video
+[481,491] = Front porch
+[492,493] = Sync
+[494,525] = Back porch
+
+         ______________________          ________
+________|        VIDEO         |________|  VIDEO (next frame)
+    |-Q-|----------R-----------|-S-|
+__   ______________________________   ___________
+  |_|                              |_|
+  |P|
+  |---------------O----------------|
+
+
+RAM Contents
+
+0000,0001 0000,0000 = 0x0000 -> Contains the
+0000,0001 0011,1111 = 0x003F -> sine table
+
+0000,0010 0000,0000 = 0x0100 -> Contains the
+0000,0010 0000,1111 = 0x010F -> palette
+
+
+
+
+var hsi :int = 0;     <- Horizontal start index
+var hinc:Number = 0;  <- Amount to increment 'hsi' each frame
+var hind:int = 0;
+
+var vsi :int = 0;
+var vind:int = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
